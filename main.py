@@ -30,7 +30,7 @@ def find_mismatch(text):
 
 
 def main():
-    i_or_f = input
+    i_or_f = input("I or F: ")
     if i_or_f == 'I':
         text = input()
         mismatch = find_mismatch(text)
@@ -39,7 +39,7 @@ def main():
         else:
             print("Success")
     elif i_or_f == 'F':
-        filename = input
+        filename = input("File name: ")
         testfolder = "test/" + filename
         try: 
             with open (testfolder, 'r') as file:
