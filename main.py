@@ -27,28 +27,15 @@ def find_mismatch(text):
     return "Success"
 
 def main():
-    i_or_f = input()
-    if i_or_f == 'I':
-        text = input()
-        mismatch = find_mismatch(text)
+    text = input()
+    text.encode('utf-8').decode('unicode-escape')
+    mismatch = find_mismatch(text)
         
-        if type(mismatch) == int:
-            print(mismatch)
-        else:
+    if type(mismatch) == int:
+            print(mismatch-5)
+    else:
             print("Success")
     
-    elif i_or_f == 'F':
-        
-        filename = input("File name: ")
-        testfolder = "test/" + filename
-        
-        with open(testfolder, 'r') as file:
-                text = file.read()
-                mismatch = find_mismatch(text)
-                if type(mismatch) == int:
-                    print(mismatch)
-                else:
-                    print("Success")
 
 if __name__ == "__main__":
     main()
