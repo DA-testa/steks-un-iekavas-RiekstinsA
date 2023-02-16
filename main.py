@@ -1,13 +1,11 @@
-# python3
+#python3
 
 from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
 
-
 def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
-
 
 def find_mismatch(text):
     opening_brackets_stack = []
@@ -25,32 +23,32 @@ def find_mismatch(text):
             pass
 
     if opening_brackets_stack:
-            return opening_brackets_stack[0].position
+        return opening_brackets_stack[0].position
     return "Success"
 
-
 def main():
-    i_or_f = input("")
+    i_or_f = input("I or F: ")
     if i_or_f == 'I':
         text = input()
         mismatch = find_mismatch(text)
+        
         if type(mismatch) == int:
             print(mismatch)
         else:
             print("Success")
+    
     elif i_or_f == 'F':
-        filename = input("")
+        
+        filename = input("File name: ")
         testfolder = "test/" + filename
-        try: 
-            with open (testfolder, 'r') as file:
+        
+        with open(testfolder, 'r') as file:
                 text = file.read()
                 mismatch = find_mismatch(text)
                 if type(mismatch) == int:
                     print(mismatch)
-        except FileNotFoundError:
-            print("Not exist")
-        else:
-            print("Success")
+                else:
+                    print("Success")
 
 if __name__ == "__main__":
     main()
