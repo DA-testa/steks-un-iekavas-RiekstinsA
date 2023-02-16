@@ -27,7 +27,7 @@ def find_mismatch(text):
     return "Success"
 
 def main():
-    i_or_f = input("I or F: ")
+    i_or_f = input()
     if i_or_f == 'I':
         text = input()
         mismatch = find_mismatch(text)
