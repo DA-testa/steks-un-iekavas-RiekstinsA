@@ -26,16 +26,24 @@ def find_mismatch(text):
         return opening_brackets_stack[0].position
     return "Success"
 
-def main():
-    text = input()
-    text.encode('utf-8').decode('unicode-escape')
-    mismatch = find_mismatch(text)
-        
-    if type(mismatch) == int:
-            print(mismatch-5)
-    else:
-            print("Success")
     
+def main():
+    i_or_f = input("I vai F: ")
+    if "I" in i_or_f:
+        text = input()
+        mismatch = find_mismatch(text)
+        if type(mismatch) == int:
+            print(mismatch)
+        else:
+            print("Success")
+    elif i_or_f == 'F':
+        filename = input("File name: ")
+        testfolder = "./test/" + filename
+        
+        with open (testfolder, mode = 'r') as file:
+                text = file.read()
+                mismatch = find_mismatch(text)
+                print(mismatch)
 
 if __name__ == "__main__":
     main()
